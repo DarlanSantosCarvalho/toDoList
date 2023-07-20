@@ -27,7 +27,6 @@ nav {
 
 .dataAtual {
     color: #4A4A4A;
-    font-family: Nunito;
     font-size: 12px;
     font-style: normal;
     font-weight: 600;
@@ -36,16 +35,57 @@ nav {
 
 .container-tasks {
     border-radius: 8px;
-    background: linear-gradient(136deg, #7F00FF 0%, #E100FF 100%);
-    box-shadow: 4px 12px 20px 4px rgba(225, 0, 255, 0.21);
+    background: rgba(250, 250, 250, 1);
+    border: 2px solid rgb(156, 156, 156);
+    /* background: linear-gradient(136deg, #7F00FF 0%, #E100FF 100%); */
+    /* box-shadow: 4px 12px 20px 4px rgba(225, 0, 255, 0.21); */
     display: flex;
     justify-content: space-around;
-    width: 250px;
-    height: 105px;
+    width: 350px;
+    height: 150px;
     margin: 0 auto;
     align-items: center;
+    margin-bottom: 40px;
     padding: 10px;
-    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.text-task {
+    color: #292929;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+img.edit {
+    width: 60px;
+    height: 60px;
+}
+
+.caixaCheck input[type="checkbox"]{
+    transform: scale(2.5);
+    background-color: #7F00FF;
+}
+
+.caixaCheck input + label:before{
+    background-color: #7F00FF;
+}
+
+img.edit:hover {
+    width: 40px;
+    height: 40px;
+    transition: 0.8s;
+}
+
+.info-text {
+    color: #292929;
+    text-align: center;
+    font-weight: 700;
+}
+
+.counter-text {
+    color: #7F00FF;
+    text-align: center;
+    font-weight: 700;
 }
 
 .edit {
@@ -57,8 +97,20 @@ button {
     background: linear-gradient(136deg, #7F00FF 0%, #E100FF 100%);
     box-shadow: 4px 12px 20px 4px rgba(225, 0, 255, 0.21);
     border: none;
-    padding: 40px;
+    padding: 30px;
+    width: 30%;
     cursor: pointer;
     display: block;
     margin: 0 auto;
+    font-size: 20px;
+}
+
+button:hover {
+    background: rgb(133, 0, 133);
+    font-size: 25px;
+    transition: 0.8s;
+}
+
+a {
+    text-decoration: none;
 }

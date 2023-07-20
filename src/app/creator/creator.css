@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+
+* {
+    font-family: 'Nunito', sans-serif;
+}
+
+h1 {
+    color: #262626;
+}
+
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: normal;
+    gap: 100px;
+    align-items: center;
+    padding: 25px;
+}
+
+img.sticker {
+    width: 30px;
+    height: 30px;
+    color: #7F00FF;
+    background-color: #7F00FF;
+}
+
+.backTo {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.backTo img {
+    width: 60px;
+    height: 60px;
+    margin-top: 10px;
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+
+.backTo img:hover {
+    width: 50px;
+    height: 50px;
+    transition: 0.8s;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 105px;
+}
+
+.container-creator {
+    margin-top: 50px;
+}
+
+.criarTask {
+    position: relative;
+    height: 50px;
+}
+
+.titleInput {
+    position: absolute;
+    top: -30px;
+}
+
+.sticker {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+}
+
+.inputEditable {
+    border: none;
+    background-color: #e9e9e9;
+    padding: 20px 100px;
+    border-radius: 8px;
+    display: flex;
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.inputEditable::placeholder {
+    padding-left: 10px;
+    color: #ABABAB;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+button {
+    border-radius: 8px;
+    background: linear-gradient(136deg, #7F00FF 0%, #E100FF 100%);
+    box-shadow: 4px 12px 20px 4px rgba(225, 0, 255, 0.21);
+    border: none;
+    padding: 30px;
+    width: 30%;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+button:hover {
+    font-size: 25px;
+    transition: 0.8s;
+}
+
+a {
+    text-decoration: none;
+}

@@ -1,34 +1,36 @@
 'use client'
 import React, { useState } from 'react'
+import "./responsive.css";
 import './page.css'
 import moment from 'moment/moment'
+import Link from 'next/link'
 
 const dataAtual = moment().format('LL')
 
 const diaSemana = moment().format('dddd')
 
-function Home() {
+export default function Home() {
 
   const [task, setTasks] = useState([
     {
       id: 1,
-      text: "Wake Up!",
+      text: "Wake Up!"
     },
     {
       id: 2,
-      text: "Daily workout",
+      text: "Daily workout"
     },
     {
       id: 3,
-      text: "Briefing with Lokanaka",
+      text: "Briefing with Lokanaka"
+    },
+    {
+      id: 4,
+      text: "Pitching with John"
     },
     {
       id: 5,
-      text: "Pitching with John",
-    },
-    {
-      id: 5,
-      text: "Design Landing Page",
+      text: "Design Landing Page"
     }
   ])
 
@@ -44,18 +46,24 @@ function Home() {
         </div>
       </nav>
 
+      <div className='info'>
+        <h2 className='info-text'>Task List</h2>
 
+        <p className='counter-text'>Contador 2/{task.length}</p>
+      </div>
       {task.map((tasks) => (
-        <div className='container-tasks'>
-          <input type='checkbox'></input>
+        <div key={tasks.id} className='container-tasks'>
+          <div class="caixaCheck">
+            <input type='checkbox'></input>
+          </div>
           <p className='text-task'>{tasks.text}</p>
-          <img className="edit" src="https://placekitten.com/30/30" alt="Ícone de próximo"></img>
+          <Link href="/editor"><img className="edit" src="/proximo.svg" alt="Ícone de próximo" /></Link>
         </div>
       ))}
 
-      <button>Create Task</button>
+      <button>
+        <Link href="/creator">Create Task</Link>
+      </button>
     </main>
   )
 }
-
-export default Home
