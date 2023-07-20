@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+
+* {
+    font-family: "Nunito", sans-serif;
+    color: white;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+
+.profilePic img {
+    border-radius: 50%;
+}
+
+.diaSemana {
+    color: #7F00FF;
+    font-family: Nunito;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.dataAtual {
+    color: #4A4A4A;
+    font-family: Nunito;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.container-tasks {
+    border-radius: 8px;
+    background: linear-gradient(136deg, #7F00FF 0%, #E100FF 100%);
+    box-shadow: 4px 12px 20px 4px rgba(225, 0, 255, 0.21);
+    display: flex;
+    justify-content: space-around;
+    width: 250px;
+    height: 105px;
+    margin: 0 auto;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+.edit {
+    cursor: pointer;
+}
+
+button {
+    border-radius: 8px;
+    background: linear-gradient(136deg, #7F00FF 0%, #E100FF 100%);
+    box-shadow: 4px 12px 20px 4px rgba(225, 0, 255, 0.21);
+    border: none;
+    padding: 40px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
