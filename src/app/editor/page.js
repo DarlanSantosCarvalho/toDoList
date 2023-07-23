@@ -7,7 +7,7 @@ const dataAtual = moment().format('LL')
 
 const diaSemana = moment().format('dddd')
 
-export default function taskCreator() {
+export default function taskEditor() {
     return (
         <main>
             <div className="backTo">

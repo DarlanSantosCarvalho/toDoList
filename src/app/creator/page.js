@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { createContext, useState, useContext } from 'react'
 import "./creator.css"
 import Link from 'next/link'
 import moment from 'moment'
@@ -7,7 +8,13 @@ const dataAtual = moment().format('LL')
 
 const diaSemana = moment().format('dddd')
 
-export default function taskCreator() {
+export default function TaskCreator({ onCreatedTask }) { //Recebe a função addTask como prop 
+  const [novaTaskTexto, setNovaTaskTexto] = useState('') // Aqui serão guardadas os textos das novas tarefas
+
+  const handleClickCreateTask = () => {
+    console.log("A tarefa foi adicionada");
+    console.log(novaTaskTexto);
+  }
   return (
     <main>
       <div className="backTo">
@@ -29,12 +36,15 @@ export default function taskCreator() {
         <div className='criarTask'>
           <span className='titleInput'>Task title</span>
           <img className="sticker" src="/verdadeiro.svg"></img>
-          <input type='text' className='inputEditable' placeholder='Type Here'></input>
+          <input value={novaTaskTexto}
+            onChange={(e) => setNovaTaskTexto(e.target.value)}
+            type='text'
+            className='inputEditable'
+            placeholder='Type Here'></input>
         </div>
       </div>
 
-      <button type='submit'>Create Task</button>
+      <button onClick={handleClickCreateTask} type='submit'>Create Task</button>
     </main>
   )
-
 }

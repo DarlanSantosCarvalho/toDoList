@@ -1,15 +1,29 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./responsive.css";
 import './page.css'
 import moment from 'moment/moment'
 import Link from 'next/link'
+import TaskCreator from './creator/page';
 
 const dataAtual = moment().format('LL')
 
 const diaSemana = moment().format('dddd')
 
-export default function Home() {
+export default function Home({ Component, pageProps }) {
+
+  useEffect(() => {
+    addTask('Nova tarefa adicionada ao montar o componente');
+  }, [])
+
+  const addTask = () => {
+    const newTask = {
+      id: task.length + 1,
+      text: TaskCreator.novaTaskTexto
+    };
+    console.log("Nova tarefa adicionada")
+    setTasks([...task, newTask]); // Atualiza o estado com a nova tarefa adicionada
+  };
 
   const [task, setTasks] = useState([
     {
@@ -60,7 +74,6 @@ export default function Home() {
           <Link href="/editor"><img className="edit" src="/proximo.svg" alt="Ícone de próximo" /></Link>
         </div>
       ))}
-
       <button>
         <Link href="/creator">Create Task</Link>
       </button>
