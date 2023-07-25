@@ -1,25 +1,24 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState} from 'react'
 import "./responsive.css";
 import './page.css'
 import moment from 'moment/moment'
 import Link from 'next/link'
-import TaskCreator from './creator/page';
 
 const dataAtual = moment().format('LL')
 
 const diaSemana = moment().format('dddd')
 
-export default function Home({ Component, pageProps }) {
+export default function Home() {
 
   useEffect(() => {
-    addTask('Nova tarefa adicionada ao montar o componente');
+    addTask();
   }, [])
 
   const addTask = () => {
     const newTask = {
       id: task.length + 1,
-      text: TaskCreator.novaTaskTexto
+      text: "Olá mundo"
     };
     console.log("Nova tarefa adicionada")
     setTasks([...task, newTask]); // Atualiza o estado com a nova tarefa adicionada
@@ -48,6 +47,22 @@ export default function Home({ Component, pageProps }) {
     }
   ])
 
+  const [taskCompleted, setTaskCompleted] = useState([])
+
+  const handleClickTaskCompleted = (taskId) => {
+    // Verifica se a tarefa com o ID "taskId" está presente no estado "TaskCompleted"
+    const isTaskCompleted = taskCompleted.includes(taskId)
+
+    //Caso a tarefa já esteja concluída, será removida do estado taskCompleted
+    if (isTaskCompleted) {
+      setTaskCompleted(taskCompleted.filter((id) => id !== taskId))
+
+      //Caso não esteja concluída, ao clicar, ela será concluída, entrando ao estado "TaskCompleted"
+    } else {
+      setTaskCompleted([...taskCompleted, taskId]);
+    }
+  }
+
   return (
     <main>
       <nav>
@@ -63,14 +78,17 @@ export default function Home({ Component, pageProps }) {
       <div className='info'>
         <h2 className='info-text'>Task List</h2>
 
-        <p className='counter-text'>Contador 2/{task.length}</p>
+        <p className='counter-text'>Contador {taskCompleted.length}/{task.length}</p>
       </div>
       {task.map((tasks) => (
-        <div key={tasks.id} className='container-tasks'>
+        <div key={tasks.id} id='container' className='container-tasks'>
           <div class="caixaCheck">
-            <input type='checkbox'></input>
+            <input
+              type='checkbox'
+              checked={taskCompleted.includes(tasks.id)}
+              onChange={() => handleClickTaskCompleted(tasks.id)}></input>
           </div>
-          <p className='text-task'>{tasks.text}</p>
+          <p id='textContainer' className='text-task'>{tasks.text}</p>
           <Link href="/editor"><img className="edit" src="/proximo.svg" alt="Ícone de próximo" /></Link>
         </div>
       ))}
