@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import "./responsive.css";
 import './page.css'
 import moment from 'moment/moment'
@@ -49,17 +49,17 @@ export default function Home() {
 
   const [taskCompleted, setTaskCompleted] = useState([])
 
-  const handleClickTaskCompleted = (taskId) => {
+  const handleClickTaskCompleted = (idTask) => {
     // Verifica se a tarefa com o ID "taskId" está presente no estado "TaskCompleted"
-    const isTaskCompleted = taskCompleted.includes(taskId)
+    const isTaskCompleted = taskCompleted.includes(idTask)
 
     //Caso a tarefa já esteja concluída, será removida do estado taskCompleted
     if (isTaskCompleted) {
-      setTaskCompleted(taskCompleted.filter((id) => id !== taskId))
+      setTaskCompleted(taskCompleted.filter((id) => id !== idTask))
 
       //Caso não esteja concluída, ao clicar, ela será concluída, entrando ao estado "TaskCompleted"
     } else {
-      setTaskCompleted([...taskCompleted, taskId]);
+      setTaskCompleted([...taskCompleted, idTask]);
     }
   }
 
