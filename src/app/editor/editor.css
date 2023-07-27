@@ -8,6 +8,10 @@ h1 {
     color: #262626;
 }
 
+h3{
+    color: red;
+}
+
 main {
     position: relative;
     display: flex;

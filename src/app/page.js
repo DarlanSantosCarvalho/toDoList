@@ -1,51 +1,18 @@
 'use client'
-import React, { useEffect, useState } from 'react'
-import "./responsive.css";
-import './page.css'
-import moment from 'moment/moment'
-import Link from 'next/link'
+import React, { useState } from 'react';
+import './responsive.css';
+import './page.css';
+import moment from 'moment/moment';
+import Link from 'next/link';
+import { observer } from 'mobx-react';
+import store from "./taskStore"
 
-const dataAtual = moment().format('LL')
+const dataAtual = moment().format('LL');
+const diaSemana = moment().format('dddd');
 
-const diaSemana = moment().format('dddd')
+const Home = observer(() => {
 
-export default function Home() {
-
-  useEffect(() => {
-    addTask();
-  }, [])
-
-  const addTask = () => {
-    const newTask = {
-      id: task.length + 1,
-      text: "Olá mundo"
-    };
-    console.log("Nova tarefa adicionada")
-    setTasks([...task, newTask]); // Atualiza o estado com a nova tarefa adicionada
-  };
-
-  const [task, setTasks] = useState([
-    {
-      id: 1,
-      text: "Wake Up!"
-    },
-    {
-      id: 2,
-      text: "Daily workout"
-    },
-    {
-      id: 3,
-      text: "Briefing with Lokanaka"
-    },
-    {
-      id: 4,
-      text: "Pitching with John"
-    },
-    {
-      id: 5,
-      text: "Design Landing Page"
-    }
-  ])
+  const { tasks } = store
 
   const [taskCompleted, setTaskCompleted] = useState([])
 
@@ -71,30 +38,35 @@ export default function Home() {
           <p className='dataAtual'>{dataAtual}</p>
         </div>
         <div className='profilePic'>
-          <img src='https://placekitten.com/80/80'></img>
+          <img src='https://placekitten.com/80/80' alt='Profile' />
         </div>
       </nav>
 
       <div className='info'>
         <h2 className='info-text'>Task List</h2>
 
-        <p className='counter-text'>Contador {taskCompleted.length}/{task.length}</p>
+        <p className='counter-text'>Contador {taskCompleted.length}/{tasks.length}</p>
       </div>
-      {task.map((tasks) => (
-        <div key={tasks.id} id='container' className='container-tasks'>
-          <div class="caixaCheck">
+
+      <div>
+        {tasks.map((task) => (
+          <div className='container-tasks' key={task.id}>
             <input
-              type='checkbox'
-              checked={taskCompleted.includes(tasks.id)}
-              onChange={() => handleClickTaskCompleted(tasks.id)}></input>
+              checked={taskCompleted.includes(task.id)}
+              onChange={() => handleClickTaskCompleted(task.id)}
+              className='caixaCheck'
+              type='checkbox'></input>
+            <p className='text-task'>{task.tarefa}</p>
+            <Link href="/editor"><img className="edit" src="/proximo.svg" alt="Ícone de próximo" /></Link>
           </div>
-          <p id='textContainer' className='text-task'>{tasks.text}</p>
-          <Link href="/editor"><img className="edit" src="/proximo.svg" alt="Ícone de próximo" /></Link>
-        </div>
-      ))}
+        ))}
+      </div>
+
       <button>
-        <Link href="/creator">Create Task</Link>
+        <Link href='/creator'>Create Task</Link>
       </button>
     </main>
-  )
-}
+  );
+});
+
+export default Home;

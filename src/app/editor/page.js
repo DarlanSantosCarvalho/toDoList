@@ -1,13 +1,27 @@
-import React from 'react';
+'use client'
+import React, { useState } from 'react';
 import "./editor.css";
 import Link from 'next/link';
 import moment from 'moment';
+import { observer } from 'mobx-react';
+import store from '../taskStore';
 
 const dataAtual = moment().format('LL')
 
 const diaSemana = moment().format('dddd')
 
-export default function taskEditor() {
+const taskEditor = observer(({ task }) => {
+
+    const [tarefa, setTarefa] = useState(task ? task.tarefa : '')
+
+    const handleTypeEditTarefa = (e) => setTarefa(e.target.value)
+
+    const handleClickToSaveEdit = () => {
+        const editedTask = { ...task, tarefa };
+        store.editTask(editedTask);
+        console.log(tarefa)
+    }
+
     return (
         <main>
             <div className="backTo">
@@ -29,12 +43,13 @@ export default function taskEditor() {
                 <div className='criarTask'>
                     <span className='titleInput'>Task title</span>
                     <img className="sticker" src="/verdadeiro.svg"></img>
-                    <input type='text' className='inputEditable' placeholder='Type Here'></input>
+                    <input value={tarefa} onChange={handleTypeEditTarefa} type='text' className='inputEditable' placeholder='Type Here'></input>
                 </div>
             </div>
 
-            <button type='submit'>Create Task</button>
+            <button onClick={handleClickToSaveEdit} type='submit'>Create Task</button>
         </main>
     )
+})
 
-}
+export default taskEditor

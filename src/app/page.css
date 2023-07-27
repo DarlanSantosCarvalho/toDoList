@@ -59,12 +59,12 @@ img.edit {
     height: 60px;
 }
 
-.caixaCheck input[type="checkbox"]{
+.caixaCheck {
     transform: scale(2.5);
-    background-color: #7F00FF;
+    color: #7F00FF;
 }
 
-.caixaCheck input + label:before{
+.caixaCheck input+label:before {
     background-color: #7F00FF;
 }
 

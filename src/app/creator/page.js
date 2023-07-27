@@ -1,20 +1,28 @@
 'use client'
-import React, { createContext, useState, useContext } from 'react'
+import React, { useState } from 'react';
+import { observer } from 'mobx-react';
+import store from '../taskStore';
 import "./creator.css"
-import Link from 'next/link'
-import moment from 'moment'
+import Link from 'next/link';
+import moment from 'moment';
 
-const dataAtual = moment().format('LL')
 
-const diaSemana = moment().format('dddd')
+const dataAtual = moment().format('LL');
+const diaSemana = moment().format('dddd');
 
-export default function TaskCreator({ onCreatedTask }) { //Recebe a função addTask como prop 
-  const [novaTaskTexto, setNovaTaskTexto] = useState('') // Aqui serão guardadas os textos das novas tarefas
+const TaskCreate = observer(() => {
+  const [tarefa, setTarefa] = useState('');
 
-  const handleClickCreateTask = () => {
-    console.log("A tarefa foi adicionada");
-    console.log(novaTaskTexto);
-  }
+  const handleClickCreateTarefa = (e) => setTarefa(e.target.value);
+
+  const handleSendCreatedTask = () => {
+    const newTask = { id: store.tasks.length + 1, tarefa };
+    store.addTask(newTask);
+    setTarefa('');
+    console.log("Funcionou")
+    console.log(tarefa)
+  };
+
   return (
     <main>
       <div className="backTo">
@@ -36,15 +44,19 @@ export default function TaskCreator({ onCreatedTask }) { //Recebe a função add
         <div className='criarTask'>
           <span className='titleInput'>Task title</span>
           <img className="sticker" src="/verdadeiro.svg"></img>
-          <input value={novaTaskTexto}
-            onChange={(e) => setNovaTaskTexto(e.target.value)}
+
+          <input value={tarefa}
+            onChange={handleClickCreateTarefa}
             type='text'
             className='inputEditable'
             placeholder='Type Here'></input>
         </div>
+
       </div>
 
-      <button onClick={handleClickCreateTask} type='submit'>Create Task</button>
+      <button onClick={handleSendCreatedTask} type='submit'>Create Task</button>
     </main>
-  )
-}
+  );
+});
+
+export default TaskCreate;
