@@ -10,17 +10,15 @@ import moment from 'moment';
 const dataAtual = moment().format('LL');
 const diaSemana = moment().format('dddd');
 
-const TaskCreate = observer(() => {
+const TaskCreator = observer(() => {
   const [tarefa, setTarefa] = useState('');
 
-  const handleClickCreateTarefa = (e) => setTarefa(e.target.value);
+  const handleTypeCreateTarefa = (e) => setTarefa(e.target.value);
 
   const handleSendCreatedTask = () => {
     const newTask = { id: store.tasks.length + 1, tarefa };
     store.addTask(newTask);
     setTarefa('');
-    console.log("Funcionou")
-    console.log(tarefa)
   };
 
   return (
@@ -46,7 +44,7 @@ const TaskCreate = observer(() => {
           <img className="sticker" src="/verdadeiro.svg"></img>
 
           <input value={tarefa}
-            onChange={handleClickCreateTarefa}
+            onChange={handleTypeCreateTarefa}
             type='text'
             className='inputEditable'
             placeholder='Type Here'></input>
@@ -59,4 +57,4 @@ const TaskCreate = observer(() => {
   );
 });
 
-export default TaskCreate;
+export default TaskCreator;

@@ -47,7 +47,7 @@ const taskEditor = observer(({ task }) => {
                 </div>
             </div>
 
-            <button onClick={handleClickToSaveEdit} type='submit'>Create Task</button>
+            <button onClick={handleClickToSaveEdit} type='submit'>Edit Task</button>
         </main>
     )
 })
