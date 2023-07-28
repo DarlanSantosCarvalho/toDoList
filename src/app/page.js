@@ -50,14 +50,17 @@ const Home = observer(() => {
 
       <div>
         {tasks.map((task) => (
-          <div className='container-tasks' key={task.id}>
+          <div style={{
+            background: taskCompleted.includes(task.id) ?
+              'linear-gradient(136deg, #7F00FF 0%, #E100FF 100%)' : ' rgba(250, 250, 250, 1)'
+          }} className='container-tasks' key={task.id}>
             <input
               checked={taskCompleted.includes(task.id)}
               onChange={() => handleClickTaskCompleted(task.id)}
               className='caixaCheck'
               type='checkbox'></input>
-            <p className='text-task'>{task.tarefa}</p>
-            <Link href="/editor"><img className="edit" src="/proximo.svg" alt="Ícone de próximo" /></Link>
+            <p style={{ color: taskCompleted.includes(task.id) ? '#ffffff' : '#262626' }} className='text-task'>{task.tarefa}</p>
+            <Link href="/editor"><img className="edit" fill={taskCompleted.includes(task.id) ? '#ffffff' : '#262626'} src="/proximo.svg" alt="Ícone de próximo" /></Link>
           </div>
         ))}
       </div>

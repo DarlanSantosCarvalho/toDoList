@@ -4,7 +4,7 @@ import "./editor.css";
 import Link from 'next/link';
 import moment from 'moment';
 import { observer } from 'mobx-react';
-import store from '../taskStore';
+import store from "../taskStore"
 
 const dataAtual = moment().format('LL')
 
@@ -17,9 +17,14 @@ const taskEditor = observer(({ task }) => {
     const handleTypeEditTarefa = (e) => setTarefa(e.target.value)
 
     const handleClickToSaveEdit = () => {
-        const editedTask = { ...task, tarefa };
-        store.editTask(editedTask);
-        console.log(tarefa)
+        if (task) {
+            const editedTask = { id: task.id, tarefa }
+            store.editTask(editedTask);
+            console.log(editedTask)
+            alert("Sua tarefa foi editada")
+        } else {
+            console.log('Erro')
+        }
     }
 
     return (
@@ -43,7 +48,7 @@ const taskEditor = observer(({ task }) => {
                 <div className='criarTask'>
                     <span className='titleInput'>Task title</span>
                     <img className="sticker" src="/verdadeiro.svg"></img>
-                    <input value={tarefa} onChange={handleTypeEditTarefa} type='text' className='inputEditable' placeholder='Type Here'></input>
+                    <input value={tarefa} onChange={handleTypeEditTarefa} type='text' className='inputEditable' placeholder={task}></input>
                 </div>
             </div>
 

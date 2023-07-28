@@ -19,6 +19,7 @@ const TaskCreator = observer(() => {
     const newTask = { id: store.tasks.length + 1, tarefa };
     store.addTask(newTask);
     setTarefa('');
+    alert("Sua tarefa foi adicionada")
   };
 
   return (

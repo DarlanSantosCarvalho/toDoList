@@ -8,7 +8,7 @@ h1 {
     color: #262626;
 }
 
-h3{
+h3 {
     color: red;
 }
 
@@ -28,6 +28,10 @@ img.sticker {
     height: 30px;
     color: #7F00FF;
     background-color: #7F00FF;
+}
+
+.profilePic img {
+    border-radius: 50%;
 }
 
 .backTo {
@@ -110,7 +114,7 @@ button {
 }
 
 button:hover {
-    font-size: 25px;
+    font-size: 30px;
     transition: 0.8s;
 }
 
