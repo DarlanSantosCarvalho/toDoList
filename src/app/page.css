@@ -33,6 +33,11 @@ nav {
     line-height: normal;
 }
 
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
 .container-tasks {
     border-radius: 8px;
     background: rgba(250, 250, 250, 1);
@@ -43,7 +48,7 @@ nav {
     height: 150px;
     margin: 0 auto;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 15px;
     padding: 10px;
     flex-wrap: wrap;
 }

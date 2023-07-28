@@ -48,11 +48,15 @@ const Home = observer(() => {
         <p className='counter-text'>Contador {taskCompleted.length}/{tasks.length}</p>
       </div>
 
-      <div>
+      <div className='container'>
         {tasks.map((task) => (
           <div style={{
             background: taskCompleted.includes(task.id) ?
-              'linear-gradient(136deg, #7F00FF 0%, #E100FF 100%)' : ' rgba(250, 250, 250, 1)'
+              'linear-gradient(136deg, #7F00FF 0%, #E100FF 100%)' : ' rgba(250, 250, 250, 1)',
+            border: taskCompleted.includes(task.id) ?
+              'none' : '2px solid rgb(156, 156, 156)',
+            boxShadow: taskCompleted.includes(task.id) ?
+              '4px 12px 20px 4px rgba(225, 0, 255, 0.21)' : 'none'
           }} className='container-tasks' key={task.id}>
             <input
               checked={taskCompleted.includes(task.id)}

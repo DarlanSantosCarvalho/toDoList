@@ -73,6 +73,8 @@ nav {
 .titleInput {
     position: absolute;
     top: -30px;
+    font-weight: 700;
+    color: #262626;
 }
 
 .sticker {

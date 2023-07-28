@@ -3,11 +3,11 @@ import { makeObservable, observable, action } from 'mobx';
 
 class TaskStore {
   tasks = [
-    { id: 1, tarefa: 'Tarefa 1' },
-    { id: 2, tarefa: 'Tarefa 2' },
-    { id: 3, tarefa: 'Tarefa 3' },
-    { id: 4, tarefa: 'Tarefa 4' },
-    { id: 5, tarefa: 'Tarefa 5' },
+    { id: 1, tarefa: 'Wake up!' },
+    { id: 2, tarefa: 'Daily workout' },
+    { id: 3, tarefa: 'Briefing with Lokanaka' },
+    { id: 4, tarefa: 'Pitching with John' },
+    { id: 5, tarefa: 'Design Landing Page' },
   ];
 
   constructor() {
