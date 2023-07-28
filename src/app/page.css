@@ -33,12 +33,13 @@ nav {
     line-height: normal;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
 }
 
 .container-tasks {
+    position: relative;
     border-radius: 8px;
     background: rgba(250, 250, 250, 1);
     border: 2px solid rgb(156, 156, 156);
@@ -51,6 +52,28 @@ nav {
     margin-bottom: 15px;
     padding: 10px;
     flex-wrap: wrap;
+}
+
+.delete-button {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    color: red;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 8px;
+}
+
+img.trash-delete {
+    width: 20px;
+    height: 20px;
+}
+
+img.trash-delete:hover {
+    width: 25px;
+    height: 25px;
+    transition: 0.8s;
 }
 
 .text-task {

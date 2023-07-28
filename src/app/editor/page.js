@@ -5,6 +5,7 @@ import Link from 'next/link';
 import moment from 'moment';
 import { observer } from 'mobx-react';
 import store from "../taskStore"
+import "../responsive.css";
 
 const dataAtual = moment().format('LL')
 
@@ -34,7 +35,7 @@ const taskEditor = observer(({ task }) => {
                 <h1>Edit Task</h1>
             </div>
 
-            <nav>
+            <nav className='editor-nav'>
                 <div className='data'>
                     <h2 className='diaSemana'>{diaSemana}</h2>
                     <p className='dataAtual'>{dataAtual}</p>

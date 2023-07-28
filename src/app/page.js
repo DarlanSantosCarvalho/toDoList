@@ -12,6 +12,17 @@ const diaSemana = moment().format('dddd');
 
 const Home = observer(() => {
 
+  const handleDeleteTask = (taskId) => {
+    store.deleteTask(taskId);
+    alert(`Tarefa removida`)
+  }
+
+  const handleClickDelete = (taskId) => {
+    if (window.confirm("Tem certeza que deseja excluir esta tarefa?")) {
+      handleDeleteTask(taskId);
+    }
+  };
+
   const { tasks } = store
 
   const [taskCompleted, setTaskCompleted] = useState([])
@@ -58,6 +69,15 @@ const Home = observer(() => {
             boxShadow: taskCompleted.includes(task.id) ?
               '4px 12px 20px 4px rgba(225, 0, 255, 0.21)' : 'none'
           }} className='container-tasks' key={task.id}>
+            <span
+              style={{
+                display: taskCompleted.includes(task.id) ?
+                  'block' : 'none'
+              }}
+              className="delete-button"
+              onClick={() => handleClickDelete(task.id)}>
+              <img className='trash-delete' src='/trash.svg' />
+            </span>
             <input
               checked={taskCompleted.includes(task.id)}
               onChange={() => handleClickTaskCompleted(task.id)}

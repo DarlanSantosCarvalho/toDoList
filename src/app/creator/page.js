@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react';
 import store from '../taskStore';
+import "../responsive.css"
 import "./creator.css"
 import Link from 'next/link';
 import moment from 'moment';
@@ -29,7 +30,7 @@ const TaskCreator = observer(() => {
         <h1>Create Task</h1>
       </div>
 
-      <nav>
+      <nav className='creator-nav'>
         <div className='data'>
           <h2 className='diaSemana'>{diaSemana}</h2>
           <p className='dataAtual'>{dataAtual}</p>

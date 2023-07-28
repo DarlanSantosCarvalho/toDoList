@@ -14,12 +14,17 @@ class TaskStore {
     makeObservable(this, {
       tasks: observable,
       addTask: action,
+      deleteTask: action,
       editTask: action,
     });
   }
 
   addTask(task) {
     this.tasks.push(task);
+  }
+
+  deleteTask(taskId) {
+    this.tasks = this.tasks.filter((task) => task.id !== taskId);
   }
 
   editTask(editedTask) {
