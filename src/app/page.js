@@ -6,12 +6,12 @@ import moment from 'moment/moment';
 import Link from 'next/link';
 import { observer } from 'mobx-react';
 import store from "./taskStore"
+import { useRouter } from 'next/router';
 
 const dataAtual = moment().format('LL');
 const diaSemana = moment().format('dddd');
 
 const Home = observer(() => {
-
   const handleDeleteTask = (taskId) => {
     store.deleteTask(taskId);
     alert(`Tarefa removida`)
@@ -84,7 +84,7 @@ const Home = observer(() => {
               className='caixaCheck'
               type='checkbox'></input>
             <p style={{ color: taskCompleted.includes(task.id) ? '#ffffff' : '#262626' }} className='text-task'>{task.tarefa}</p>
-            <Link href="/editor"><img className="edit" fill={taskCompleted.includes(task.id) ? '#ffffff' : '#262626'} src="/proximo.svg" alt="Ícone de próximo" /></Link>
+            <Link href={`/editor?id=${task.id}`}><img className="edit" fill={taskCompleted.includes(task.id) ? '#ffffff' : '#262626'} src="/proximo.svg" alt="Ícone de próximo" /></Link>
           </div>
         ))}
       </div>

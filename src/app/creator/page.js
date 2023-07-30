@@ -17,10 +17,15 @@ const TaskCreator = observer(() => {
   const handleTypeCreateTarefa = (e) => setTarefa(e.target.value);
 
   const handleSendCreatedTask = () => {
-    const newTask = { id: store.tasks.length + 1, tarefa };
-    store.addTask(newTask);
-    setTarefa('');
-    alert("Sua tarefa foi adicionada")
+
+    if (tarefa == "") {
+      alert("Não é possível adicionar uma tarefa vazia")
+    } else {
+      const newTask = { id: store.tasks.length + 1, tarefa };
+      store.addTask(newTask);
+      setTarefa('');
+      alert("Sua tarefa foi adicionada")
+    }
   };
 
   return (

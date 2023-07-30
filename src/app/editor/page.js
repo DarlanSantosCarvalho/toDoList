@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import "./editor.css";
 import Link from 'next/link';
 import moment from 'moment';
@@ -13,18 +13,31 @@ const diaSemana = moment().format('dddd')
 
 const taskEditor = observer(({ task }) => {
 
-    const [tarefa, setTarefa] = useState(task ? task.tarefa : '')
 
-    const handleTypeEditTarefa = (e) => setTarefa(e.target.value)
+    const [tarefa, setTarefa] = useState('');
+    const [tarefaEdited, setTarefaEdited] = useState('');
+    const [textId, setTextId] = useState('');
+
+    useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const paramsTaskId = urlParams.get("id");
+        const textTarefa = store.tasks.find((task) => task.id === Number(paramsTaskId));
+
+        setTarefa(textTarefa.tarefa);
+        setTextId(paramsTaskId)
+    }, []);
+
+    const handleTypeEditTarefa = (e) => setTarefaEdited(e.target.value)
 
     const handleClickToSaveEdit = () => {
-        if (task) {
-            const editedTask = { id: task.id, tarefa }
-            store.editTask(editedTask);
-            console.log(editedTask)
+        if (textId) {
+            const editedTarefa = { idTask: Number(textId), tarefa: tarefaEdited }
+            store.editTask(editedTarefa);
+            console.log(tarefaEdited)
+            console.log(store.tasks)
             alert("Sua tarefa foi editada")
         } else {
-            console.log('Erro')
+            alert('Erro')
         }
     }
 
@@ -49,12 +62,12 @@ const taskEditor = observer(({ task }) => {
                 <div className='criarTask'>
                     <span className='titleInput'>Task title</span>
                     <img className="sticker" src="/verdadeiro.svg"></img>
-                    <input value={tarefa} onChange={handleTypeEditTarefa} type='text' className='inputEditable' placeholder={task}></input>
+                    <input value={tarefaEdited} onChange={handleTypeEditTarefa} type='text' className='inputEditable' placeholder={tarefa}></input>
                 </div>
             </div>
 
             <button onClick={handleClickToSaveEdit} type='submit'>Edit Task</button>
-        </main>
+        </main >
     )
 })
 
