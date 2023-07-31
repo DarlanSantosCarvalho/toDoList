@@ -4,10 +4,6 @@
     font-family: 'Nunito', sans-serif;
 }
 
-h1 {
-    color: #262626;
-}
-
 main {
     position: relative;
     display: flex;
@@ -47,14 +43,8 @@ img.sticker {
     transition: 0.8s;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    gap: 105px;
-}
-
 .container-creator {
-    margin-top: 50px;
+    margin-top: 250px;
 }
 
 .criarTask {

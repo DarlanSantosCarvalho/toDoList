@@ -31,19 +31,9 @@ const TaskCreator = observer(() => {
   return (
     <main>
       <div className="backTo">
-        <Link href="/"><img src="/proximo.svg" alt="Ícone de próximo" /></Link>
+        <Link href="/"><img src="/proximoBlack.svg" alt="Ícone de próximo" /></Link>
         <h1>Create Task</h1>
       </div>
-
-      <nav className='creator-nav'>
-        <div className='data'>
-          <h2 className='diaSemana'>{diaSemana}</h2>
-          <p className='dataAtual'>{dataAtual}</p>
-        </div>
-        <div className='profilePic'>
-          <img src='https://placekitten.com/80/80'></img>
-        </div>
-      </nav>
 
       <div class="container-creator">
         <div className='criarTask'>

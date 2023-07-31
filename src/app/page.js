@@ -6,22 +6,22 @@ import moment from 'moment/moment';
 import Link from 'next/link';
 import { observer } from 'mobx-react';
 import store from "./taskStore"
-import { useRouter } from 'next/router';
 
 const dataAtual = moment().format('LL');
 const diaSemana = moment().format('dddd');
 
 const Home = observer(() => {
-  const handleDeleteTask = (taskId) => {
-    store.deleteTask(taskId);
-    alert(`Tarefa removida`)
-  }
 
   const handleClickDelete = (taskId) => {
     if (window.confirm("Tem certeza que deseja excluir esta tarefa?")) {
       handleDeleteTask(taskId);
     }
   };
+
+  const handleDeleteTask = (taskId) => {
+    store.deleteTask(taskId);
+    alert(`Tarefa removida`)
+  }
 
   const { tasks } = store
 
@@ -49,7 +49,7 @@ const Home = observer(() => {
           <p className='dataAtual'>{dataAtual}</p>
         </div>
         <div className='profilePic'>
-          <img src='https://placekitten.com/80/80' alt='Profile' />
+          <img src='/profilePic.png' alt='Profile' />
         </div>
       </nav>
 
@@ -72,7 +72,7 @@ const Home = observer(() => {
             <span
               style={{
                 display: taskCompleted.includes(task.id) ?
-                  'block' : 'none'
+                  'none' : 'block'
               }}
               className="delete-button"
               onClick={() => handleClickDelete(task.id)}>
@@ -84,7 +84,9 @@ const Home = observer(() => {
               className='caixaCheck'
               type='checkbox'></input>
             <p style={{ color: taskCompleted.includes(task.id) ? '#ffffff' : '#262626' }} className='text-task'>{task.tarefa}</p>
-            <Link href={`/editor?id=${task.id}`}><img className="edit" fill={taskCompleted.includes(task.id) ? '#ffffff' : '#262626'} src="/proximo.svg" alt="Ícone de próximo" /></Link>
+            <Link href={`/editor?id=${task.id}`}><img className="edit"
+              src={taskCompleted.includes(task.id) ?
+                "/proximoWhite.svg" : "/proximoBlack.svg"} alt="Indicação para editar a tarefa" /></Link>
           </div>
         ))}
       </div>
@@ -92,7 +94,7 @@ const Home = observer(() => {
       <button>
         <Link href='/creator'>Create Task</Link>
       </button>
-    </main>
+    </main >
   );
 });
 
