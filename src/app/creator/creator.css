@@ -4,6 +4,10 @@
     font-family: 'Nunito', sans-serif;
 }
 
+h1{
+    color: #262626;
+}
+
 main {
     position: relative;
     display: flex;

@@ -1,11 +1,19 @@
-### Vamos Começar
+# Vamos iniciar.
 
-## Para iniciarmos, segue o passo-a-passo:
+# Existem duas maneiras para se fazer a instalação da aplicação:
 
-# npm install - Primeiro vamos instalar os pacotes necessários para a aplicação funcionar
+# Através do Git Clone
+## Caso selecione o git clone, clique no botão de cor verde com conteúdo "<> Code"
+## Após isso, abra terminal do seu computador (Do editor também funciona.)
+## Digite "git clone "(link copiado)" "
+## Após isso, faça a instalação dos pacotes utilizando o npm install
+## Por fim, digite "npm run dev" e a aplicação rodará na porta indicada pelo terminal através do localhost
 
-# npm run dev - Para iniciar a aplicação
+# Através do Download
+## Baixe o arquivo zipado do código ao clicar no botão de cor verde com conteúdo "<> Code"
+## Extraia os arquivos do código zipado
+## Acesse a pasta pelo seu editor de código
+## Após isso, faça a instalação dos pacotes utilizando o npm install
+## Por fim, digite "npm run dev" e a aplicação rodará na porta indicada pelo terminal através do localhost
 
-## Acesse [http://localhost:3000](http://localhost:3000) ou, caso já esteja sendo utilizado, a porta correta será indicada no terminal. 
-# (Utilizei Chrome durante a produção).
 
