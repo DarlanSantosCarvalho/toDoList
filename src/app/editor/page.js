@@ -31,15 +31,19 @@ const taskEditor = observer(({ task }) => {
 
     const handleClickToSaveEdit = () => {
         if (textId) {
-            const editedTarefa = { idTask: Number(textId), tarefa: tarefaEdited }
-            store.editTask(editedTarefa);
-            console.log(tarefaEdited)
-            console.log(store.tasks)
-            alert("Sua tarefa foi editada")
+            if (tarefaEdited.trim() === '') {
+                alert("Não houve alteração na tarefa.");
+            } else {
+                const editedTarefa = { idTask: Number(textId), tarefa: tarefaEdited.trim() };
+                store.editTask(editedTarefa);
+                console.log(tarefaEdited);
+                console.log(store.tasks);
+                alert("Sua tarefa foi editada.");
+            }
         } else {
-            alert('Erro')
+            alert('Erro');
         }
-    }
+    };
 
     return (
         <main>
