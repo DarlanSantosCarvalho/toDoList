@@ -4,6 +4,10 @@
     font-family: 'Nunito', sans-serif;
 }
 
+h1{
+    color: #262626;
+}
+
 main {
     position: relative;
     display: flex;
@@ -48,7 +52,7 @@ img.sticker {
 }
 
 .container-editor {
-    margin-top: 250px;
+    margin-top: 200px;
 }
 
 .criarTask {

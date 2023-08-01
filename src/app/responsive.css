@@ -81,4 +81,12 @@
         width: 25px;
         height: 25px;
     }
+
+    .container-editor {
+        margin-top: 70px;
+    }
+
+    .container-creator {
+        margin-top: 70px;
+    }
 }

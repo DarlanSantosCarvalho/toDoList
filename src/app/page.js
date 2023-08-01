@@ -56,7 +56,7 @@ const Home = observer(() => {
       <div className='info'>
         <h2 className='info-text'>Task List</h2>
 
-        <p className='counter-text'>Contador {taskCompleted.length}/{tasks.length}</p>
+        <p className='counter-text'>{taskCompleted.length}/{tasks.length} Task finished</p>
       </div>
 
       <div className='container'>
