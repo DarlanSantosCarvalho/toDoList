@@ -60,7 +60,7 @@
         padding: 20px 60px;
         margin-right: 0px;
         font-size: 20px;
-        margin-top: 220px;
+        margin-top: 200px;
     }
 
     .creator-nav {
@@ -92,6 +92,6 @@
 
     .creatorbutton,
     .editorButton{
-        margin-top: 180px;
+        margin-top: 170px;
     }
 }
