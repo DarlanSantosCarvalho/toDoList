@@ -76,7 +76,7 @@ const Home = observer(() => {
               }}
               className="delete-button"
               onClick={() => handleClickDelete(task.id)}>
-              <img className='trash-delete' src='/trash.svg' />
+              <img className='trash-delete' src='/botao-excluir.svg' />
             </span>
             <input
               checked={taskCompleted.includes(task.id)}
