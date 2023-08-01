@@ -91,7 +91,7 @@ const Home = observer(() => {
         ))}
       </div>
 
-      <button>
+      <button className='mainButton'>
         <Link href='/creator'>Create Task</Link>
       </button>
     </main >

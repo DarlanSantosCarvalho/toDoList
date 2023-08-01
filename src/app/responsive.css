@@ -90,7 +90,8 @@
         margin-top: 70px;
     }
 
-    button{
+    .creatorbutton,
+    .editorButton{
         margin-top: 80px;
     }
 }

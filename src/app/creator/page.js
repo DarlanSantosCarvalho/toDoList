@@ -49,7 +49,7 @@ const TaskCreator = observer(() => {
 
       </div>
 
-      <button onClick={handleSendCreatedTask} type='submit'>Create Task</button>
+      <button className='creatorButton' onClick={handleSendCreatedTask} type='submit'>Create Task</button>
     </main>
   );
 });
