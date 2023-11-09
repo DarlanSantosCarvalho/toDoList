@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Bem-vindo à Instalação da Aplicação! 🚀
 
 Se você está ansioso para começar a usar nossa incrível aplicação, temos duas maneiras simples para você fazer a instalação:
@@ -23,5 +24,3 @@ Se você está ansioso para começar a usar nossa incrível aplicação, temos d
 E voilà! Você agora possui a aplicação instalada e pronta para ser explorada. Aproveite a experiência e não hesite em nos dar seu feedback ou contribuir para o projeto.
 
 Divirta-se e obrigado por escolher nossa aplicação! 🎉
-
-
