@@ -51,6 +51,10 @@ img.sticker {
     margin-top: 200px;
 }
 
+.container-description{
+    margin-top: 20px;
+}
+
 .criarTask {
     position: relative;
     height: 50px;

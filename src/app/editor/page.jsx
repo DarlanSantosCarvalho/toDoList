@@ -27,6 +27,10 @@ const taskEditor = observer(({ task }) => {
         setTextId(paramsTaskId)
     }, []);
 
+    useEffect(() => {
+        localStorage.setItem('tasks', JSON.stringify(store.tasks))
+    }, [store.tasks]) // A cada vez que ocorrer uma alteração no store, será gravado no local storage.
+
     const handleTypeEditTarefa = (e) => setTarefaEdited(e.target.value)
 
     const handleClickToSaveEdit = () => {

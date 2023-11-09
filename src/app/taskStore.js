@@ -1,13 +1,33 @@
-'use client'
-import { makeObservable, observable, action } from 'mobx';
+"use client";
+import { makeObservable, observable, action } from "mobx";
 
 class TaskStore {
   tasks = [
-    { id: 1, tarefa: 'Wake up!' },
-    { id: 2, tarefa: 'Daily workout' },
-    { id: 3, tarefa: 'Briefing with Lokanaka' },
-    { id: 4, tarefa: 'Pitching with John' },
-    { id: 5, tarefa: 'Design Landing Page' },
+    {
+      id: 1,
+      tarefa: "Acordar",
+      description: "Aproveitar o dia desde cedo",
+    },
+    {
+      id: 2,
+      tarefa: "Academia pela manhã",
+      description: "Treino diário",
+    },
+    {
+      id: 3,
+      tarefa: "Reunião de desempenho",
+      description: "Reunião com executivos da empresa",
+    },
+    {
+      id: 4,
+      tarefa: "Entrevista de candidatos",
+      description: "Potenciais colaboradores",
+    },
+    {
+      id: 5,
+      tarefa: "Leitura do livro Harry Potter",
+      description: "Ler das páginas 55 à 80",
+    },
   ];
 
   constructor() {
@@ -27,10 +47,11 @@ class TaskStore {
     this.tasks = this.tasks.filter((task) => task.id !== taskId);
   }
 
-  editTask(editedTarefa) {
-    const index = this.tasks.findIndex((task) => task.id === editedTarefa.idTask);
+  editTask(editedTask) {
+    const index = this.tasks.findIndex((task) => task.id === editedTask.id);
+
     if (index !== -1) {
-      this.tasks[index] = { ...this.tasks[index], tarefa: editedTarefa.tarefa };
+      this.tasks[index] = { ...this.tasks[index], ...editedTask };
     }
   }
 }
