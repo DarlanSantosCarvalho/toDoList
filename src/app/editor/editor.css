@@ -55,6 +55,10 @@ img.sticker {
     margin-top: 200px;
 }
 
+.container-editor.desc {
+    margin-top: 20px;
+}
+
 .criarTask {
     position: relative;
     height: 50px;

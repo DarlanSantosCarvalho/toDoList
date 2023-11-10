@@ -47,11 +47,15 @@ class TaskStore {
     this.tasks = this.tasks.filter((task) => task.id !== taskId);
   }
 
-  editTask(editedTask) {
-    const index = this.tasks.findIndex((task) => task.id === editedTask.id);
+  editTask(editedTarefa) {
+    const index = this.tasks.findIndex((task) => task.id === editedTarefa.idTask);
 
     if (index !== -1) {
-      this.tasks[index] = { ...this.tasks[index], ...editedTask };
+      this.tasks[index] = {
+        ...this.tasks[index],
+        tarefa: editedTarefa.tarefa,
+        description: editedTarefa.description,
+      };
     }
   }
 }
